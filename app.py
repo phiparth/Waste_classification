@@ -3,31 +3,31 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 # here
-# import os
-# import requests
-# from tensorflow.keras.models import load_model
+import os
+import requests
+from tensorflow.keras.models import load_model
 
-# MODEL_URL = "https://drive.google.com/file/d/1QK7J27P6nFEseUzWtzBA8ocyKuIEhRSn/view?usp=drive_link"
-# MODEL_PATH = "bio.h5"
+MODEL_URL = "https://drive.google.com/file/d/1QK7J27P6nFEseUzWtzBA8ocyKuIEhRSn/view?usp=drive_link"
+MODEL_PATH = "bio.h5"
 
-# def download_model(url=MODEL_URL, dest=MODEL_PATH):
-#     if not os.path.exists(dest):  # Download only if not already present
-#         st.write("Downloading model... Please wait.")
-#         r = requests.get(url, stream=True)
-#         r.raise_for_status()
-#         with open(dest, "wb") as f:
-#             for chunk in r.iter_content(chunk_size=8192):
-#                 if chunk:
-#                     f.write(chunk)
-#         st.write("Download complete.")
+def download_model(url=MODEL_URL, dest=MODEL_PATH):
+    if not os.path.exists(dest):  # Download only if not already present
+        st.write("Downloading model... Please wait.")
+        r = requests.get(url, stream=True)
+        r.raise_for_status()
+        with open(dest, "wb") as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                if chunk:
+                    f.write(chunk)
+        st.write("Download complete.")
 
-# download_model()
+download_model()
 
-# @st.cache_resource
-# def load_model():
-#     return load_model(MODEL_PATH)
+@st.cache_resource
+def load_model():
+    return load_model(MODEL_PATH)
 
-# model = load_model()
+model = load_model()
 #here
 # Load the trained model
 @st.cache_resource
